@@ -25,14 +25,15 @@ Result
 The result is a new *shapefile* containing 1 layer of points (cetroids)
 
 
++-------------------------------------------------+--------------------------------------------------+
+| Polygons                                        | Centroids                                        |
++=================================================+==================================================+
+| .. image:: docs/imgs/shape_file_br_polygons.png | .. image:: docs/imgs/shape_file_br_centroids.png |
++-------------------------------------------------+--------------------------------------------------+
+
+All the attibutes are copied too to the new shape
+
 .. image:: docs/imgs/shape_file_br_centroids_attrs.png
-    :width: 400
     :alt: QGIs layers: Polygons and Centroids (Points)
-
-
-.. image:: docs/imgs/shape_file_br_centroids.png
-    :width: 400
-    :alt: Attributes are all copied
-
 
 
