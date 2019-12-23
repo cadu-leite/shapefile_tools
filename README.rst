@@ -37,3 +37,24 @@ All the attibutes are copied too to the new shape
     :alt: QGIs layers: Polygons and Centroids (Points)
 
 
+
+GDAL on MAC OS Mojave
+====================
+
+
+.. code-block:: bash
+
+    $ brew install gdal
+
+on your preferable enviroment
+
+.. code-block:: bash
+
+    $ pip install gdal==<same_version_brew_gdal>
+
+
+then try 
+
+.. code-block:: python
+
+    from osgeo import gdal
