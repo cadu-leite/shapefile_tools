@@ -10,10 +10,7 @@ Macapa - centroid nao esta contio no polígono.
 
 '''
 
-import os
-
 from pathlib import Path
-import shutil
 
 from osgeo import ogr
 from osgeo import osr
