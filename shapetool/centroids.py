@@ -25,6 +25,17 @@ from matplotlib.collections import PatchCollection
 
 
 class OGRVectorLayerField:
+    '''
+    pt:  uma classe que representa os atributos da classe `GeomFieldDefn`
+
+    en: A Class to represent the attributes of  GeomFieldefn
+
+    OSGEO Module:
+        Package osgeo :: Module ogr :: Class GeomFieldDefn
+
+
+
+    '''
     def __init__(
         self, fieldtypename=None, justify=None, name=None, nameref=None, precision=None,
         subtype=None, type_code=None, typename=None, width=None, isnullable=None
