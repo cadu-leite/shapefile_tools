@@ -1,9 +1,13 @@
 '''
->>> from shp_tool.centroids import get_shp_centroids
->>> shp_out = '/Volumes/p10G/prj/ogr_gdal_notebooks/saidas/'
->>> shp_in = '/Volumes/kduNTfs128/geo_data/br_municipios/BRMUE250GC_SIR.shp'
->>> get_shp_centroids(shp_in, shp_out, expression="CD_GEOCMU ilike '16%'", overwrite=True)
 
+
+
+
+In [1]: from shapetool import centroids
+
+In [2]: centroids.get_shp_centroids('/Volumes/kduNTfs128/geo_data/jd_estoril', '/Volumes/kduNTfs128/geo_data/jd_estoril/centroids')
+
+In [3]:
 
 
 Macapa - centroid nao esta contio no polígono.
@@ -95,10 +99,25 @@ def __create_shp__(shapefile_path, SRS_num, field_list, layer_name='newlayer'):
 
 
 def get_shp_centroids(shp_in, shp_out, expression=None, overwrite=True):
-    '''
+    """
+    [en] build a shapefile with points features
+    based on centroids from a polygon shapefile
+
+    [pt-BR] cria um shapefile com pontos baseados
+    nos centroids vindos de um shapefile de poligonos.
 
 
-    '''
+    Args:
+        shapefile_in (string): path of a valid polygons shapefile
+        shapefile_out (string): path for output.
+
+    Returns:
+        returns the number of points features rceated
+
+    todo:
+    detach the shape creation ... only possible throught serialization of metadata.
+    impossible to bring the `layer`  variable out of context... it causes a CPython crash. 
+    """
 
     drvr = ogr.GetDriverByName('ESRI Shapefile')
     ds_pol = drvr.Open(shp_in, 0)
