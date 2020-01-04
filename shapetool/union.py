@@ -1,16 +1,24 @@
 '''
+Author: Carlos Leite
+email: caduado at gmail
+
+Generate the unionED geometry (multipolygon)
+--------------------------------------------
+
+>>> from shapetool import union
+>>> union_geom = union.union(<path_to_polygon_shapefile>, <filter_expression>)
+
+Plot Geometry to MatplotLib window
+----------------------------------
+
+>>> union.plot_multipoly(<union_geom>)
 
 
-In [1]: from shp_tool import union
+Create a shapeFile with results
+-------------------------------
 
-In [2]: geom = union.union('/Volumes/kduNTfs128/geo_data/RG2017_regioesgeograficas2017_20180911', "UF = '15'")
+>>> union.create_shp(<union_resulted_geometry>, <path_to_create_shapefile>)
 
-In [3]: union.create_shp(geom, '/Volumes/kduNTfs128/geo_data/saida_3_union/')
-
-In [4]: union.plot_multipoly(geom)
-
-In [5]: geom
-Out[5]: <osgeo.ogr.Geometry; proxy of <Swig Object of type 'OGRGeometryShadow *' at 0x11418cd80> >
 
 '''
 
@@ -91,6 +99,7 @@ def create_shp(geom, dir='saida', layer_name='multpol', overwritedir=True):
     ----
 
     Se o `param::geom` não contém SpatialRefSYs ...
+    'NoneType' object has no attribute 'AutoIdentifyEPSG'
 
     .. code::python
 
@@ -169,4 +178,3 @@ def plot_multipoly(poly_union):
     ax.set_title('Union Shape (Polygon)')
     pyplot.savefig('union.pdf', dpi=100)
     pyplot.show()
-
