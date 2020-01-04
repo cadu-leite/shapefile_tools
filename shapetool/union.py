@@ -146,7 +146,8 @@ def plot_multipoly(poly_union):
     for i in range(poly_union.GetGeometryCount()):
         geom_ref = poly_union.GetGeometryRef(i)
         geom = geom_ref.GetGeometryRef(0)
-        vertices = [(x, y) for x, y, z in geom.GetPoints()]
+        # #1 fix error `not enough values to unpack (expected 3, got 2)`
+        vertices = [(xy[0], xy[1]) for xy in geom.GetPoints()]
 
         # pc = geom.Centroid()
         # pyplot.text(pc.GetPoint()[1], pc.GetPoint()[0], 'area', size=1,ha="center", va="center")
