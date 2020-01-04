@@ -31,8 +31,8 @@ from osgeo import ogr
 
 from matplotlib import path as mpath
 from matplotlib import patches as mpatches
-from matplotlib import pyplot
 from matplotlib.collections import PatchCollection
+from matplotlib.figure import Figure
 
 
 def union(shapefile, expression):
@@ -142,7 +142,7 @@ def create_shp(geom, dir='saida', layer_name='multpol', overwritedir=True):
     outDataSource.Destroy()
 
 
-def plot_multipoly(poly_union):
+def plot_multipoly(poly_union, pdf_name='union_polygon.pdf'):
     '''
     recebe uma tipo MultiPolygon
     <osgeo.ogr.Geometry; proxy of <Swig Object of type 'OGRGeometryShadow *' at 0x10c4179f0> >
@@ -162,19 +162,19 @@ def plot_multipoly(poly_union):
         # pyplot.text(pc.GetPoint()[1], pc.GetPoint()[0], 'area', size=1,ha="center", va="center")
 
         pol = mpatches.Polygon(vertices)
-        patch = mpatches.PathPatch(pol)
         patches.append(pol)
 
     p = PatchCollection(patches, color='#6CA043', alpha=0.9, lw=0.5, ec='#1D388C', label='NECTO Systems')
 
-    pyplot.ioff()
-    pyplot.subplot(111)
-    ax = pyplot.gca()
+    fig = Figure()
+    ax = fig.gca()
     ax.set_xlim(xmin, xmax)
     ax.set_ylim(ymin, ymax)
     ax.add_collection(p)
     ax.set_aspect(1.0)
     ax.autoscale()
     ax.set_title('Union Shape (Polygon)')
-    pyplot.savefig('union.pdf', dpi=100)
-    pyplot.show()
+    fig.savefig(pdf_name, dpi=fig.dpi)
+    fig.savefig(pdf_name, dpi=100)
+
+    return pdf_name
