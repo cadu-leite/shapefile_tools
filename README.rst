@@ -1,8 +1,11 @@
-**********************
-Get and Plot Centroids
-**********************
+*********
+Centroids
+*********
 
-Script para gerar centroids de polígonos a partir de um *shapefile*.
+Script para gerar "centroids" de polígonos a partir de um *shapefile*.
+
+Os atributos da "feature" (registro) são copiados dos polígonos para os pontos
+
 
 [en] Generated centroids (points) from polygons *shapefiles* while copying all source attributes to the new sahpefile attributes.
 
@@ -35,6 +38,18 @@ All the attibutes are copied too to the new shape
 
 .. image:: docs/imgs/shape_file_br_centroids_attrs.png
     :alt: QGIs layers: Polygons and Centroids (Points)
+
+
+
+
+UNION
+=====
+
+Unifica Geometrias de Polígonos
+
+.. image:: docs/imgs/union_result.png
+
+
 
 
 
