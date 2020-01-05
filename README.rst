@@ -1,3 +1,8 @@
+
+    The main goal is to have a VERY simple tool to make small operations on shapefiles from the shell
+
+
+
 *********
 Centroids
 *********
@@ -68,7 +73,7 @@ on your preferable enviroment
     $ pip install gdal==<same_version_brew_gdal>
 
 
-then try 
+then try
 
 .. code-block:: python
 
