@@ -1,2 +1,2 @@
 GDAL==2.4.2
-pytest==5.3.2
+pytest==9.0.3
